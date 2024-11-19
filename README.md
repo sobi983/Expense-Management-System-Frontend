@@ -1,8 +1,35 @@
-# React + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Expense Tracker App Frontend
 
-Currently, two official plugins are available:
+### Prerequisites
+List what is needed to install and run the project, 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node v18.20.5 (LTS)
+- yarn
+
+# Dependencies
+
+- Zustand
+- React Router Dom
+- Framer Motion
+- Axios
+- React Icons
+- React Slick
+- React Spinner
+- Yup
+- Vite
+- Tailwind
+
+
+# How to install
+- To run this project you will have to install node first then please type the following command to run it
+
+```
+yarn run dev
+```
+
+The visit:- http://localhost:5173/
+
+
+
