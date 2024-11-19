@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import useUserStore from "../../store/userStore";
 
+//For Mobile view Navigation menu
 const ResponsiveMenu = ({ isOpen }) => {
   const { userData, removeUserData } = useUserStore()
   const navigate = useNavigate()

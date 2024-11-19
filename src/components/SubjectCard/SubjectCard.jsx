@@ -7,7 +7,7 @@ import { SiRemedyentertainment } from "react-icons/si";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { TbShoppingCart } from "react-icons/tb";
 
-
+// Impoted icons from Material UI component library
 const subjectList = [
   {
     id: 1,

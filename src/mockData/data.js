@@ -1,3 +1,4 @@
+// Add new object to reflect it into the navigation bar
 export const NavbarMenu = [
   {
     id: 1,

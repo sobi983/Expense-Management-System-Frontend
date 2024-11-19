@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import IMAGES from "../../assets/assests";
 
+// Created style
 const FooterBg = {
   backgroundImage: `url(${IMAGES?.footer})`,
   backgroundRepeat: "no-repeat",
@@ -11,6 +12,7 @@ const FooterBg = {
   backgroundPosition: "bottom center",
 };
 
+// Styling and the layout. Links are included of SAFF
 const Footer = () => {
 
   return (

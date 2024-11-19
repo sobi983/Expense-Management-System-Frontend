@@ -1,3 +1,4 @@
+//Animation for the slides of the components used with framer
 export const SlideUp = (delay) => {
   return {
     hidden: {

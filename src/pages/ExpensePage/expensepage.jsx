@@ -41,9 +41,10 @@ const ExpensePage = () => {
     const categories = ['Food', 'Transport', 'Entertainment', 'Health', 'Others'];
 
     const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));  // mui responsiveness
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+    // Async function to check the role of the user and calling it accordingly, I am using useCallback hook for the memorisation of the function. Optimisation! 
     const fetchExpenses = useCallback(async () => {
         try {
             const fetchFunction = role === 'user' ? getExpense : getAllExpenses;
@@ -58,6 +59,7 @@ const ExpensePage = () => {
         }
     }, [role]);
 
+    // Verifying the session token 
     useEffect(() => {
         const sessionStatus = localStorage.getItem('jwtToken');
         if (sessionStatus) {
@@ -80,6 +82,7 @@ const ExpensePage = () => {
         setEditingId(null);
     };
 
+    // This method is reposible for creating and updating the expenses
     const handleSave = async (values, { setSubmitting }) => {
         try {
             const expenseData = {
@@ -120,8 +123,7 @@ const ExpensePage = () => {
         }
     };
 
-
-
+    // This will open the modal for the editing
     const handleEdit = (expense) => {
         setIsEditing(true);
         setEditingId(expense.id);
@@ -179,6 +181,7 @@ const ExpensePage = () => {
     ];
 
     return (
+        //Added framer mothion for the animation
         <motion.div
             className="p-4 sm:p-6 bg-gray-100 min-h-screen flex flex-col"
             initial={{ opacity: 0, y: -20 }}

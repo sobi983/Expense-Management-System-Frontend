@@ -4,6 +4,7 @@ import NumberCounter from "../../components/NumberCounter/NumberCounter";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import Testimonial from "../../components/Testimonial/Testimonial";
 
+// Stacking the components
 const HomePage = () => {
     return (
         <>

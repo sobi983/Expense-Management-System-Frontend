@@ -5,7 +5,7 @@ import { validateJWT } from "./services/expenseService";
 import useUserStore from "./store/userStore";
 import Spinner from './components/Spinner/Spinner';
 
-// Lazy load components
+// Lazy load components optimsed strategy
 const HomePage = lazy(() => import("./pages/HomePage/homepage"));
 const AboutUs = lazy(() => import("./pages/AboutUs/aboutus"));
 const ContachUs = lazy(() => import("./pages/ContactUs/contactus"));
@@ -17,6 +17,7 @@ const ProtectedRoute = lazy(() => import("./services/auth"));
 const App = () => {
   const addUserData = useUserStore(state => state.addUserData);
 
+  // The token can be held for years, so if the user visits the website after a long time then still he can see the expenses without loggin in if the token has not expired
   useEffect(() => {
     validateJWT()
       .then(res => {
@@ -32,6 +33,9 @@ const App = () => {
       })
   }, [])
 
+
+  // This is the optimisation technique, it is used used to memoize the result of a function from which we can avoid re-renders
+  // Also used Suspense for the page loading. If the API is taking time then this will handle the page apearance
   const router = useMemo(() => createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<LayoutHome />}>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import useUserStore from '../store/userStore';
 
+// This is a protected route for the /expense route 
 const ProtectedRoute = () => {
   const { userData } = useUserStore()
 

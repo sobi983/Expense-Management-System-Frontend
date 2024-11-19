@@ -1,6 +1,7 @@
 import React from 'react';
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Typography } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button, Typography } from '@mui/material'; // MUI component library
 
+// DialogBox code
 const MessageDialog = ({ open, onClose, message }) => {
     return (
         <Dialog open={open} onClose={onClose}>

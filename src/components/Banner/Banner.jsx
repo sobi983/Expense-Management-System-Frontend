@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { SlideUp } from "../../utilities/animation";
+import { motion } from "framer-motion"; // Imprted framer motion for the animation
+import { SlideUp } from "../../utilities/animation"; 
 
 const Banner = ({ image, title, subtitle, tag, reverse }) => {
   return (

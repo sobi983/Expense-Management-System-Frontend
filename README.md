@@ -18,6 +18,7 @@ List what is needed to install and run the project,
 - React Slick
 - React Spinner
 - Yup
+- Formik
 - Vite
 - Tailwind
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// If no route found then this page will appear
 const PageNotFound = () => {
     return (
         <>

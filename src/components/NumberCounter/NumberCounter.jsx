@@ -1,5 +1,5 @@
 import React from "react";
-import CountUp from "react-countup";
+import CountUp from "react-countup"; // for the count animation for the numbers
 
 const NumberCounter = () => {
   return (
