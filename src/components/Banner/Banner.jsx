@@ -9,9 +9,8 @@ const Banner = ({ image, title, subtitle, tag, reverse }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 space-y-6 md:space-y-0">
           {/* banner Image section */}
           <div
-            className={`flex justify-start items-center ${
-              reverse && "md:order-last md:justify-end"
-            }`}
+            className={`flex justify-start items-center ${reverse && "md:order-last md:justify-end"
+              }`}
           >
             <motion.img
               initial={{ opacity: 0, scale: 0.5 }}

@@ -11,8 +11,8 @@ const NumberCounter = () => {
               start={0}
               end={898}
               duration={3}
-              // enableScrollSpy={true}
-              // scrollSpyOnce={true}
+            // enableScrollSpy={true}
+            // scrollSpyOnce={true}
             />
           </p>
           <p>Tracking Made Easy</p>
@@ -24,8 +24,8 @@ const NumberCounter = () => {
               separator=","
               suffix="+"
               duration={3}
-              // enableScrollSpy={true}
-              // scrollSpyOnce={true}
+            // enableScrollSpy={true}
+            // scrollSpyOnce={true}
             />
           </p>
           <p>Track Every Penny</p>
@@ -35,8 +35,8 @@ const NumberCounter = () => {
             <CountUp
               end={298}
               duration={3}
-              // enableScrollSpy={true}
-              // scrollSpyOnce={true}
+            // enableScrollSpy={true}
+            // scrollSpyOnce={true}
             />
           </p>
           <p>Budgtes</p>
@@ -48,8 +48,8 @@ const NumberCounter = () => {
               separator=","
               suffix="+"
               duration={3}
-              // enableScrollSpy={true}
-              // scrollSpyOnce={true}
+            // enableScrollSpy={true}
+            // scrollSpyOnce={true}
             />
           </p>
           <p>Active users</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaEye } from "react-icons/fa6";
-import { MdOutlineLocalGroceryStore, MdEmojiTransportation, MdOutlineHealthAndSafety   } from "react-icons/md";
+import { MdOutlineLocalGroceryStore, MdEmojiTransportation, MdOutlineHealthAndSafety } from "react-icons/md";
 import { LuUtilityPole } from "react-icons/lu";
 import { SiRemedyentertainment } from "react-icons/si";
 import { IoFastFoodOutline } from "react-icons/io5";
@@ -54,7 +54,7 @@ const subjectList = [
   {
     id: 7,
     name: "Healthcare",
-    icon: <MdOutlineHealthAndSafety  />,
+    icon: <MdOutlineHealthAndSafety />,
     color: "#b93838",
     delay: 0.8,
   },

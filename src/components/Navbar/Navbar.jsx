@@ -62,7 +62,7 @@ const Navbar = () => {
               </Link>
             </div>
             {Object.keys(userData).length != 0 && <div className="hidden lg:block space-x-6">
-              <button className="text-black bg-primary font-semibold rounded-full px-6 py-2" onClick={()=>signOut()}>{Object.keys(userData).length != 0 ? 'Signout' : ''}</button>
+              <button className="text-black bg-primary font-semibold rounded-full px-6 py-2" onClick={() => signOut()}>{Object.keys(userData).length != 0 ? 'Signout' : ''}</button>
             </div>}
           </div>
 

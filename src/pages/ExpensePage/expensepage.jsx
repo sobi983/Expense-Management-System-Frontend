@@ -88,11 +88,11 @@ const ExpensePage = () => {
                 expense_date: values.date,
                 category: values.category,
             };
-    
+
             if (isEditing) {
                 // When editing, pass the `editingId` and updated data to the `editExpense` API
                 const response = await editExpense(editingId, expenseData); // Pass the editingId here
-    
+
                 if (response?.status) {
                     // Update the local state to reflect the changes
                     setExpenses(expenses.map((expense) =>
@@ -119,7 +119,7 @@ const ExpensePage = () => {
             handleClose();
         }
     };
-    
+
 
 
     const handleEdit = (expense) => {
@@ -143,7 +143,7 @@ const ExpensePage = () => {
                 console.error('Error occurred while deleting expense:', err);
             });
     };
-    
+
 
     const columns = [
         { field: 'category', headerName: 'Category', flex: 0.5, minWidth: 100 },
