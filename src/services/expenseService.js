@@ -19,6 +19,18 @@ export function loginUser(creds) {
         });
 }
 
+//Signup User
+export function signupUser(creds) {
+    return apiClient.post('/signup', creds)
+        .then(response => {
+            return response.data; // Return response data, typically user info or token
+        })
+        .catch(error => {
+            console.log(error)
+            handleApiError(error);
+        });
+}
+
 // Create Expense
 export function createExpense(expenseData) {
     const token = localStorage.getItem('jwtToken');

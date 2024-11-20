@@ -4,28 +4,27 @@ import * as Yup from 'yup';
 import DialogBox from '../../components/DialogBox/DialogBox';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { loginUser, validateJWT } from '../../services/expenseService'
+import { signupUser, validateJWT } from '../../services/expenseService'
 import { useNavigate } from 'react-router-dom';
-import useUserStore from '../../store/userStore';
-
 
 // Validation schema using Yup
 const validationSchema = Yup.object({
     email: Yup.string().required('Email is required').email('Invalid email format'),
+    username: Yup.string().required('Username is required').min(4, 'Username must be at least 4 characters'),
     password: Yup.string().required('Password is required').min(6, 'Password must be at least 6 characters'),
 });
 
 const INITIAL_VALUES = {
     email: '',
+    username: '',
     password: '',
 };
 
-const Login = () => {
+const SignUp = () => {
     // State for Dialog visibility
     const [openDialog, setOpenDialog] = useState(false);
     const [dialogMessage, setDialogMessage] = useState('');
     const navigate = useNavigate();
-    const { addUserData } = useUserStore()
 
     useEffect(() => {
         validateJWT()
@@ -44,28 +43,31 @@ const Login = () => {
     const handleSubmit = (values, { resetForm }) => {
         let rData = {
             email: values?.email,
-            password: values?.password
+            username: values?.username,
+            password: values?.password,
+            role: 'user'
         }
 
-        loginUser(rData)
+        signupUser(rData)
             .then((response) => {
+                console.log(response)
+
                 if (response?.status === true) {
-                    addUserData(response?.user)
-                    localStorage.setItem('jwtToken', response?.token);
-                    localStorage.setItem('userInfo', response?.user?.username);
-                    navigate('/expense')
+                    setDialogMessage(response?.message);
+                    setOpenDialog(true);
+                    navigate('/login')
                 }
                 else {
-                    setDialogMessage('Incorrect Email or Password');
+                    setDialogMessage(response?.message);
                     setOpenDialog(true);
-                    resetForm();
+                    // resetForm();
                 }
             })
             .catch((err) => {
                 console.log(err)
                 setDialogMessage('Something Went Wrong!');
                 setOpenDialog(true);
-                resetForm();
+                // resetForm();
             })
     };
 
@@ -83,7 +85,7 @@ const Login = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Login
+                    Sign Up
                 </motion.h2>
                 <Formik
                     initialValues={INITIAL_VALUES}
@@ -111,6 +113,30 @@ const Login = () => {
                                                 />
                                                 {touched.email && errors.email && (
                                                     <div className="text-red-500 text-sm">{errors.email}</div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </Field>
+                                </motion.div>
+
+                                {/* UserName Field */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <Field name="username">
+                                        {({ field }) => (
+                                            <div>
+                                                <input
+                                                    {...field}
+                                                    type="username"
+                                                    placeholder="Your Username"
+                                                    className={`w-full p-3 border-2 rounded-lg ${touched.username && errors.username ? 'border-red-500' : 'border-gray-300'
+                                                        }`}
+                                                />
+                                                {touched.username && errors.username && (
+                                                    <div className="text-red-500 text-sm">{errors.username}</div>
                                                 )}
                                             </div>
                                         )}
@@ -149,10 +175,11 @@ const Login = () => {
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.5, delay: 0.4 }}
                                 >
-                                    Log In
+                                    Sign Up
                                 </motion.button>
                             </div>
 
+                            {/* Below the login button */}
                             <motion.div
                                 className="mt-2 text-center"
                                 initial={{ opacity: 0 }}
@@ -160,9 +187,9 @@ const Login = () => {
                                 transition={{ duration: 0.5, delay: 0.8 }}
                             >
                                 {/* Sign-up prompt */}
-                                <span className="text-sm text-gray-600">Don't have an account? </span>
-                                <Link to={'/signup'}>
-                                    <button className="text-sm text-blue-600 hover:underline">Sign Up here!</button>
+                                <span className="text-sm text-gray-600">Already have an account? </span>
+                                <Link to={'/login'}>
+                                    <button className="text-sm text-blue-600 hover:underline">Login here!</button>
                                 </Link>
                             </motion.div>
                         </Form>
@@ -180,4 +207,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

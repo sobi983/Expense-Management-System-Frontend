@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NavbarBanner = () => {
   const [isOpen, setIsOpen] = React.useState(true);
@@ -12,9 +13,9 @@ const NavbarBanner = () => {
         className="bg-primary text-sm text-center font-semibold p-1 hidden lg:block relative"
       >
         Are you looking for a smart way to manage and track your personal or household expenses?
-        <a href="#" className="text-secondary ml-2">
-          Talk to us
-        </a>
+        <Link to={'/contact'}>
+          <button className="text-secondary ml-2">Talk to us</button>
+        </Link>
         <div
           className="absolute top-1/2 right-10 cursor-pointer -translate-y-1/2"
           onClick={() => setIsOpen(false)}

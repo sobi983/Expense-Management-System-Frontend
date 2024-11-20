@@ -11,6 +11,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs/aboutus"));
 const ContachUs = lazy(() => import("./pages/ContactUs/contactus"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/pageNotFound"));
 const Login = lazy(() => import("./pages/Login/login"));
+const SignUp = lazy(() => import("./pages/SignUp/signup"));
 const ExpensePage = lazy(() => import("./pages/ExpensePage/expensepage"));
 const ProtectedRoute = lazy(() => import("./services/auth"));
 
@@ -57,6 +58,11 @@ const App = () => {
         <Route path='login' element={
           <Suspense fallback={<Spinner />}>
             <Login />
+          </Suspense>
+        } />
+        <Route path='signup' element={
+          <Suspense fallback={<Spinner />}>
+            <SignUp />
           </Suspense>
         } />
         <Route element={
